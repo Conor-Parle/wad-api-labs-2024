@@ -1,0 +1,24 @@
+{
+    "env": {
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommend"
+    ],
+    "parserOptions":{
+        "ecmaFeatures":{
+            "jsx": true
+        },
+        "ecmaFeatures": "latest",
+        "sourceType": "module"
+    },
+    "plugina": [
+        "react"
+    ],
+    "rules": {
+        "semi": 1,
+        "no-console": "off"
+    }
+}
