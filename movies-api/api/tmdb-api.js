@@ -33,3 +33,30 @@ export const getGenres = async () => {
         throw error;
     }
 };
+
+export const getPopularMovies = async () => {
+    try {
+      const response = await fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`);
+      if (!response.ok) {
+        const errorResponse = await response.json();
+        throw new Error(errorResponse.message);
+      }
+      return await response.json();
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  export const getMovieDetails = async (movieId) => {
+    try {
+      const response = await fetch(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`);
+      if (!response.ok) {
+        const errorResponse = await response.json();
+        throw new Error(errorResponse.message);
+      }
+      return await response.json();
+    } catch (error) {
+      throw error;
+    }
+  };
+  

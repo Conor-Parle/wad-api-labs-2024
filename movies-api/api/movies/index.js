@@ -35,4 +35,23 @@ router.get('/tmdb/genres', async (req, res) => {
     }
 });
 
+router.get('/tmdb/popular', async (req, res) => {
+    try {
+      const popularMovies = await getPopularMovies();
+      res.status(200).json(popularMovies);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+  router.get('/tmdb/:id', asyncHandler(async (req, res) => {
+    const movieId = req.params.id;
+    try {
+      const movieDetails = await getMovieDetails(movieId);
+      res.status(200).json(movieDetails);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  }));
+
 export default router;
